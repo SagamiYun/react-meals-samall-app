@@ -10,7 +10,11 @@
 }
 
 .ImgBox {
-    width: 300rem;
+    width: 260rem;
+}
+
+.DescBox {
+    flex: auto;
 }
 
 img {

@@ -91,14 +91,24 @@ function App() {
         }
 
         newCart.totalAmount -= 1;
-        newCart.totalAmount -= meal.price;
+        newCart.totalPrice -= meal.price;
 
         setCartData(newCart);
     }
 
+    const clearCart = () => {
+        const newCart = {...cartData};
+        newCart.items.forEach((item: any) => delete item.amount);
+        newCart.items = [];
+        newCart.totalAmount = 0;
+        newCart.totalPrice = 0;
+
+        setCartData(newCart);
+    };
+
   return (
       <div style={{width: '600rem'}}>
-        <CartContext.Provider value={{...cartData, addItem, removeItem}}>
+        <CartContext.Provider value={{...cartData, addItem, removeItem, clearCart}}>
             <FilterMeals onFilter={filterHandler}/>
             <Meals
                 mealsData={mealsData}
