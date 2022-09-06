@@ -11,8 +11,6 @@ function Cart() {
     const [showCheckout, setShowCheckout] = useState(false);
 
     const toggleDetailsHandler = () => {
-        console.log()
-        console.log(showDetails)
         if (ctx.totalAmount === 0) {
             setShowDetails(false);
             return;

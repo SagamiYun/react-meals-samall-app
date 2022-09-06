@@ -13,10 +13,19 @@
     z-index: 9999;
 }
 
+.Price {
+    display: flex;
+    align-items: center;
+    margin-left: 25rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: 28rem;
+}
+
 .TotalPrice{
     display: flex;
     align-items: center;
-    margin-left: 60rem;
+    padding-right: 180rem;
     color: #fff;
     font-weight: bold;
     font-size: 34rem;
