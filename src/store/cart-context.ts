@@ -5,9 +5,7 @@ const CartContext = React.createContext({
     totalAmount: 0,
     totalPrice: 0,
 
-    addItem: (meal: any) => {},
-    removeItem: (meal: any) => {},
-    clearCart: ()=>{}
+    cartDispatch: (p: { type: string , meal?: any}) => {},
 });
 
 export default CartContext;

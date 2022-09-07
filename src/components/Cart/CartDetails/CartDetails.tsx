@@ -6,6 +6,7 @@ import classes from "./CartDetails.module.css";
 import CartContext from "../../../store/cart-context";
 import Meal from "../../Meals/Meal/Meal";
 import Confirm from "../../UI/Confirm/Confirm";
+import meal from "../../Meals/Meal/Meal";
 
 function CartDetails() {
     const ctx = useContext(CartContext);
@@ -21,7 +22,7 @@ function CartDetails() {
     };
 
     const okHandler = () => {
-        ctx.clearCart();
+        ctx.cartDispatch({type: 'CLEAR'});
     };
 
     return (

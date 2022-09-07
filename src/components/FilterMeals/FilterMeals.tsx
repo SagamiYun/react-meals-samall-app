@@ -14,7 +14,7 @@ function FilterMeals(props: any) {
         return () => {
             clearTimeout(timer);
         };
-    }, [keyword])
+    }, [keyword]);
 
     const inputChangeHandler = (e: any) => {
         setKeyword(e.target.value.trim());

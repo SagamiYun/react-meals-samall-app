@@ -8,13 +8,11 @@ function Counter(props: any) {
     const ctx = useContext(CartContext)
 
     const addButtonHandler = () => {
-        ctx.addItem(props.meal)
-        // props.onAdd(props.meal);
+        ctx.cartDispatch({type: 'ADD', meal: props.meal});
     }
 
     const subButtonHandler = () => {
-        ctx.removeItem(props.meal)
-        // props.onSub(props.meal)
+        ctx.cartDispatch({type: 'REMOVE', meal: props.meal})
     }
 
     return (
