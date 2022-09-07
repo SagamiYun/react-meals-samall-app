@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import classes from './Cart.module.css';
 import iconImg from '../../asset/bag.png'
 import CartContext from "../../store/cart-context";
@@ -10,6 +10,13 @@ function Cart() {
     const [showDetails, setShowDetails] = useState(false);
     const [showCheckout, setShowCheckout] = useState(false);
 
+    useEffect(() => {
+        if (ctx.totalAmount === 0) {
+            setShowCheckout(false);
+            setShowDetails(false);
+        }
+    }, [ctx.totalAmount])
+
     const toggleDetailsHandler = () => {
         if (ctx.totalAmount === 0) {
             setShowDetails(false);
@@ -20,16 +27,16 @@ function Cart() {
 
     const showCheckoutHandler = () => {
         if(ctx.totalAmount === 0) return;
-        setShowCheckout(true)
+        setShowCheckout(true);
     };
 
     const hideCheckoutHandler = () => {
-        setShowCheckout(false)
+        setShowCheckout(false);
     };
 
     return (
         <div className={classes.Cart} onClick={toggleDetailsHandler}>
-            {showCheckout && <Checkout onHide={hideCheckoutHandler}/>}
+            {(showCheckout && ctx.totalAmount !== 0) && <Checkout onHide={hideCheckoutHandler}/>}
             {(showDetails && ctx.totalAmount !== 0) && <CartDetails/>}
             <div className={classes.Icon}>
                 <img src={iconImg} alt="" />
